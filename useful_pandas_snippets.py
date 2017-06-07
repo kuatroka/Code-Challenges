@@ -156,12 +156,16 @@ import datetime
 datetime.datetime.fromtimestamp(1420196399)
 ## datetime.datetime(2015, 1, 2, 10, 59, 59)
 
-# from time in string form directly to UTC epoch in float format
+# from time in string format directly to UTC epoch in float format
 import datetime
 import time
 dt = parser.parse("2014-10-11 04:00:00")
 time.mktime(dt.timetuple())
 ## 1412996400.0
+
+# from UTC apoch to pandas Timestamp, which is an integer
+pd.to_datetime(1496839680, unit="s")
+## Timestamp('2017-06-07 12:48:00')
 
 # difference in seconds between two dates
 import datetime
@@ -171,4 +175,8 @@ import datetime
 import datetime
 dateB = (dateA + datetime.timedelta(hours=2000))
 
-# From 
+# From pandas tslib.Timstamp to datetime.datetime format
+tmp = pd.to_datetime(1496839680, unit="s")
+tmp.to_pydatetime()
+## datetime.datetime(2017, 6, 7, 12, 48)
+
