@@ -141,23 +141,27 @@ np.set_printoptions(suppress=True)
 # use decimal presision  in numpy
 np.set_printoptions(precision=4)
 
-# dates - reads date as string and output python understndable datetime
+# dates - reads date in string format and converts to datetime.datetime
 from dateutil import parser
 dt = parser.parse("2014-10-11 04:00:00")
+## datetime.datetime(2014, 10, 11, 4, 0)
 
-# convert datetime into UTC - Unix epoch
+# converts from datetime.datetime format into UTC - Unix epoch in float format
 import datetime
-date  = datetime.datetime(2015, 1, 2, 10, 00, 00).timestamp()
+utc_epoch  = datetime.datetime(2015, 1, 2, 10, 00, 00).timestamp()
+## 1420192800.0
 
-# other way around - from UTC timestamp to datetime formatting
+# other way around - from UTC timestamp in int format to datetime.datetime format
 import datetime
 datetime.datetime.fromtimestamp(1420196399)
+## datetime.datetime(2015, 1, 2, 10, 59, 59)
 
-# from time in string form directly to UTC epoch
+# from time in string form directly to UTC epoch in float format
 import datetime
 import time
 dt = parser.parse("2014-10-11 04:00:00")
 time.mktime(dt.timetuple())
+## 1412996400.0
 
 # difference in seconds between two dates
 import datetime
@@ -167,4 +171,4 @@ import datetime
 import datetime
 dateB = (dateA + datetime.timedelta(hours=2000))
 
-####
+# From 
